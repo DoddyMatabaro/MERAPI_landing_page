@@ -13,6 +13,7 @@
 *{
     margin: 0;
     padding: 0;
+    
 }
 body{
     display: grid;
@@ -27,6 +28,8 @@ header{
     width: 100vw;
     color: var(--color-white);
     background-color: var(--color-primary);
+    display: grid;
+    grid-template-rows: 100px 1fr;
 }
 nav{
     display: flex;
@@ -161,21 +164,36 @@ nav li a{
     .menu > li:not(:last-child){
       border-bottom: 1px solid #444;
     }
-    #product{
-      display:flex;
-      flex-direction: row;
-      /* grid-template-rows: 1.125fr 1.125fr; */
-      
+    .hero{
+        display: flex;
+        flex-direction: column;
     }
-
-
+    .hero__image{
+        width: 100%;
+        height: 50%;
+    }
 }
 /* end of tooggle button menu */
+
+.hero{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding);
+}
+.hero__image{
+    overflow: hidden;
+}
+.hero__image>img{
+    width: 100%;
+    height: 100%;
+}
 #about{
     background-color: rgb(36, 194, 47);
     grid-area:about;
 }
-
 #agents{
     background-color: rgb(116, 119, 132);
     grid-area: agents;
