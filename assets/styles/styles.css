@@ -23,6 +23,7 @@ body{
     grid-template-rows: 1fr 0.5fr 1fr 1fr 1fr 0.5fr;
     grid-template-areas: "header" "patterners" "about" "agents" "gallery" "footer";
     font-family: DM sans ;
+    color: var(--color-white);
 }
 header{
     background-color: rgb(200, 104, 104);
@@ -55,7 +56,7 @@ nav{
     padding: var(--padding)
     
 }
-nav li a{
+a{
     text-decoration: none;
     color: var(--color-white);
 
@@ -66,6 +67,7 @@ nav li a{
     text-align: center;
     align-items: center;
     border-radius: var(--border-radius);
+    padding: var(--padding);
 }
 
 .menu-button-container{
@@ -93,10 +95,19 @@ nav li a{
 }
 
 #parteners{
-    background-color: rgb(11, 30, 123);
     grid-area: patterners;
+    background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
 }
-
+.patterners_logos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+}
 .menu-button::before{
     content: '';
     margin-top: -8px;
@@ -227,7 +238,7 @@ nav li a{
 .categories{
     display: flex;
 }
-article{
+.categories article{
     background-color: var(--color-variant2);
     padding: calc(var(--padding) * 2);
 }
@@ -235,8 +246,37 @@ article{
     background-color: var(--color-variant);
 }
 #about{
-    background-color: rgb(36, 194, 47);
+    background-color: var(--color-primary);
     grid-area:about;
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-rows: 0.7fr 0.3fr;
+    grid-template-areas: "text image" "stat stat";
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding);
+    gap: 1rem;
+}
+
+.about_image{
+    order: 2;
+    grid-area: image
+}
+.about_us{
+    order:1;
+    grid-area: text;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem
+}
+.statistics{
+    grid-area:  stat;
+    order: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* width:100%; */
 }
 #agents{
     background-color: rgb(116, 119, 132);
