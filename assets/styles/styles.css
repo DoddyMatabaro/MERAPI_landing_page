@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
 :root{
     --color-primary:#161618;
     --color-secondary:#ff9839;
@@ -14,8 +17,8 @@ body{
     display: grid;
     grid-template-rows: 1fr 0.5fr 1fr 1fr 1fr 0.5fr;
     grid-template-areas: "header" "patterners" "about" "agents" "gallery" "footer";
+    font-family: DM Sans;
 }
-
 header{
     background-color: rgb(200, 104, 104);
     grid-area: header;
@@ -42,7 +45,6 @@ nav{
 .menu li{
     margin: 0;
     overflow: hidden;
-    /* margin: var(--margin); */
     padding: var(--padding)
     
 }
@@ -58,6 +60,31 @@ nav li a{
     align-items: center;
     border-radius: var(--border-radius);
 }
+
+.menu-button-container{
+    display: none;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+}
+#menu-toggle{
+    display: none;
+}
+.menu-button,
+.menu-button::before,
+.menu-button::after{
+    display: block;
+    background-color: var(--color-white);
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: none;
+}
+
 #parteners{
     background-color: rgb(11, 30, 123);
     grid-area: patterners;
