@@ -13,6 +13,7 @@
     --border-radius: 2px;
     --margin : 0.6rem;
 }
+
 *{
     margin: 0;
     padding: 0;
@@ -26,7 +27,6 @@ body{
     color: var(--color-white);
 }
 header{
-    background-color: rgb(200, 104, 104);
     grid-area: header;
     height: 100vh;
     width: 100vw;
@@ -53,8 +53,7 @@ nav{
 .menu li{
     margin: 0;
     overflow: hidden;
-    padding: var(--padding)
-    
+    padding: var(--padding);  
 }
 a{
     text-decoration: none;
@@ -95,19 +94,26 @@ a{
     border-radius: 2px;
 }
 
-#parteners{
+#patterners{
     grid-area: patterners;
     background-color: var(--color-primary);
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
+    gap: 2rem;
 }
 .patterners_logos{
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+#patterners small{
+    font-size: 11px;
 }
 .menu-button::before{
     content: '';
@@ -199,7 +205,7 @@ a{
     align-items: center;
     justify-content: center;
     padding: var(--padding);
-    margin-bottom:var(--margin)
+    margin-bottom:var(--margin);
 }
 .devise{
     grid-area: devise;
@@ -207,11 +213,32 @@ a{
 
 .hero__image{
     grid-area: image;
-    overflow: hidden;
+    /* overflow: hidden; */
+    height: 100%;
+    position: relative;
+
 }
 .hero__image>img{
     width: 100%;
     height: 100%;
+    opacity: 0;
+}
+
+.hero__image div{
+
+    position: absolute;
+    z-index: 1;
+    background-repeat: no-repeat;
+    transform: rotateY(-50deg) scale(0.5);
+    transition: all 0.6s cubic-bezier(0.445, 0.05, 0,55, 0,95);
+    transform-origin: bottom;
+    /* opacity: 0; */
+}
+
+.hero__image.active div{
+    opacity: 1;
+    transform: rotateY(0deg) translateY(0);
+    transition-delay: 0.5s;
 }
 .search{
     display: flex;
@@ -251,34 +278,41 @@ a{
     grid-area:about;
     display: grid;
     grid-template-columns: 0.5fr 0.5fr;
-    grid-template-rows: 0.7fr 0.3fr;
-    grid-template-areas: "text image" "stat stat";
+    grid-template-rows: 0.6fr 0.3fr;
+    grid-template-areas: "image texte" "stat stat";
     justify-content: center;
     align-items: center;
     padding: var(--padding);
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .about_image{
-    order: 2;
-    grid-area: image
+    grid-area: image;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.about_image img{
+    width: 100%;
+    height: auto;
+    opacity: 0;
 }
 .about_us{
-    order:1;
-    grid-area: text;
+    grid-area: texte;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem
+    gap: 1.5rem;
+    width: 100%;
+    padding: calc(var(--padding) * 2)
 }
 .statistics{
-    grid-area:  stat;
-    order: 3;
+    grid-area: stat;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    /* width:100%; */
 }
+
 .statistics article h1{
     color: var(--color-secondary);
     
@@ -292,14 +326,14 @@ a{
     padding: var(--padding);
 }
 .stars{
-    width: 60%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
 .agents_image{
-    width: 40%;
+    width: 50%;
 }
 .star{
     width: 100%;
@@ -312,12 +346,13 @@ a{
 }
 .stars_details article{
     border-left: 3px var(--color-secondary) solid;
-
+    /* padding-left: var(--padding); */
 }
 .stars_details article p{
     font-size: 10px;
     line-height: 0.7rem;
-    padding-top: var(--padding);
+    padding : var(--padding) 0 0 var(--padding);
+    line-break: inherit;
 }
 #gallery{
     background-color: rgb(37, 37, 41);
